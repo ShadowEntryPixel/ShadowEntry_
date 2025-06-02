@@ -1,0 +1,54 @@
+# ShadowEntry_
+코딩
+function myEventHandler(args) {
+    console.log("이벤트 발생!", args);
+}
+
+// 'customEvent' 이벤트에 대한 리스너 등록
+Entry.addEventListener('customEvent', myEventHandler);
+/ 'customEvent' 이벤트에 대한 리스너 제거
+Entry.removeEventListener('customEvent', myEventHandler);
+/ 'customEvent' 이벤트에 대한 리스너 제거
+Entry.removeEventListener('customEvent', myEventHandler);
+// 'customEvent' 이벤트 발생시키기
+Entry.dispatchEvent('customEvent', "매개변수1", "매개변수2");
+Entry.init(document.getElementById('workspace'), {
+    type: 'workspace',
+});
+Entry.loadProject();
+const project = Entry.exportProject();
+Entry.launchFullScreen();
+Entry.exitFullScreen();
+const mediaFilePath = "/assets"; // 미디어 파일 접근 경로의 접두사 설정
+const startProject = Entry.getStartProject(mediaFilePath);
+const interfaceState = Entry.captureInterfaceState();
+Entry.loadInterfaceState(interfaceState);
+// 프로젝트 실행 이벤트에 대한 리스너 등록
+Entry.addEventListener('run', function() {
+    console.log('프로젝트가 시작되었습니다.');
+});
+
+
+});
+Entry.dispatchEvent('customEvent', arg1, arg2);
+Entry.removeAllEventListener('customEvent');
+const canRedo = Entry.stateManager.canRedo();
+const canUndo = Entry.stateManager.canUndo();
+Entry.stateManager.clear();
+Entry.stateManager.redo();
+Entry.stateManager.undo();
+// 또는
+Entry.stateManager.undo(3)
+// 메세지 블록들을 숨기고 싶은 경우
+Entry.playground.blockMenu.banClass('message')
+// 숨긴 메세지 블록들을 표시하고 싶은 경우
+Entry.playground.blockMenu.unbanClass('message')
+Entry.playground.blockMenu.banCategory('start')
+Entry.playground.blockMenu.unbanCategory('start')
+Entry.toast.alert('오류', '경고.', false)
+Entry.toast.warning('경고', '주의가 필요한 상황입니다.', false);
+Entry.toast.success('성공 제목', '작업이 성공적으로 완료되었습니다.', false);
+const keyCodeMap = Entry.getKeyCodeMap();
+const elapsedTime = Entry.getUpTime();
+const isDefault = Entry.isDefaultProject();
+const isMobile = Entry.isMobile();
